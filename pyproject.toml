@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "food2u"
+version = "1.0.0"
+description = "Food2U - WSU campus food delivery Telegram bot"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "aiogram>=3.4,<4.0",
+    "python-dotenv>=1.0,<2.0",
+    "aiosqlite>=0.19,<1.0",
+    "asyncpg>=0.29,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+food2u = "food2u.app:main"
+
+[tool.setuptools.packages.find]
+include = ["food2u*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# The handler module uses a wildcard import of keyboards by design.
+ignore = ["E501", "F403", "F405"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

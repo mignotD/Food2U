@@ -1,0 +1,24 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Secrets / local config
+.env
+
+# Database
+food2u.sqlite3
+*.sqlite3
+
+# Tooling caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# Packaging
+*.egg-info/
+build/
+dist/
